@@ -377,6 +377,79 @@
     }
     .service-image img { height: 400px; }
 }
+/* --- התאמה למובייל (רספונסיביות) --- */
+
+/* חוקים אלו יחולו רק על מסכים ברוחב 768 פיקסלים ומטה (טאבלטים וסמארטפונים) */
+@media (max-width: 768px) {
+
+    /* הקטנת כותרות וטקסטים כלליים */
+    h1 { font-size: 3em; }
+    h2 { font-size: 2em; }
+    p { font-size: 1.1em; }
+    section { padding: 40px 20px; } /* הקטנת שוליים פנימיים */
+
+    /* התאמת ה-Header (תמונת הנושא) */
+    header {
+        height: 60vh; /* גובה מופחת במובייל */
+        min-height: 400px;
+    }
+    header p {
+        font-size: 1.3em;
+        padding: 0 20px; /* הוספת שוליים לטקסט שלא יידבק לצדדים */
+    }
+
+    /* התאמת סקשנים של שירותים (תמונה וטקסט) */
+    /* הופך את הכיוון לטור במקום שורה, וממרכז את הטקסט */
+    .service-section, .service-section.reverse {
+        flex-direction: column !important; /* הכרחי כדי לשבור את השורה */
+        text-align: center;
+    }
+
+    /* איפוס הרווחים שהיו מותאמים לדסקטופ */
+    .service-text, .service-section.reverse .service-text {
+        width: 100%;
+        padding: 0 0 30px 0 !important; /* רווח תחתון בלבד */
+    }
+
+    /* התאמת תמונות בסקשנים */
+    .service-image {
+        width: 100%;
+        height: 300px; /* גובה קבוע לתמונות במובייל למראה אחיד */
+        margin-bottom: 20px;
+    }
+
+    /* התאמת גלריה מסתובבת */
+    /* הגלריה היא אלמנט מורכב. במובייל נקטין את המיכל ואת הפרספקטיבה */
+    .gallery-container {
+        overflow: hidden; /* מניעת גלילה רוחבית אם היא חורגת */
+    }
+    .gallery {
+        /* הקטנה קלה של כל האלמנט המסתובב כדי שייכנס במסך צר */
+        transform: scale(0.8); 
+        transform-origin: center center;
+    }
+    /* התאמת האנימציה שתעבוד עם ה-scale */
+    @keyframes spin {
+        from { transform: scale(0.8) rotateY(0deg); }
+        to { transform: scale(0.8) rotateY(360deg); }
+    }
+
+    /* התאמת כפתור וואטסאפ צף */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* התאמה נוספת למסכים ממש קטנים (סמארטפונים צרים) */
+@media (max-width: 480px) {
+    h1 { font-size: 2.5em; }
+    header p { font-size: 1.1em; }
+    .btn-main { padding: 10px 25px; font-size: 1em; }
+}
     </style>
 </head>
 <body>
@@ -568,7 +641,7 @@
 				 './1/4.jpg',
 				 './1/5.jpg',
 				 './1/6.jpg',
-				 './1/7.jpg',
+				 './1/5.jpg',
 				 './1/8.jpg',
 				 './1/9.jpg',
 				 './1/2.jpg',
